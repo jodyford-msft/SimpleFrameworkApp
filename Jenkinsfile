@@ -18,7 +18,7 @@ pipeline {
          }
         stage('Clean') {
             steps {
-                bat "dotnet clean ${workspace}\\SimpleFrameworkApp.sln"
+                bat "dotnet clean SimpleFrameworkApp.sln"
             }
         }
         stage('Increase version') {
