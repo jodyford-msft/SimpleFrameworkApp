@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Restore packages') {
             steps {
-                bat "dotnet restore SimpleFrameworkApp.sln -f net48"
+                bat "msbuild.exe SimpleFrameworkApp.csproj -t:restore"
                 }
          }
         stage('Clean') {
             steps {
-                bat "dotnet clean SimpleFrameworkApp.sln -f net48"
+                bat "msbuild.exe SimpleFrameworkApp.csproj -t:clean"
             }
         }
         stage('Increase version') {
@@ -37,7 +37,7 @@ pipeline {
             }
         stage('Build') {
             steps {
-                bat "dotnet build ${workspace}\\SimpleFrameworkApp.sln"
+                bat "msbuild.exe SimpleFrameworkApp.csproj -t:build"
             }
         }
         stage('Running unit tests') {
