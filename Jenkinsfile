@@ -21,20 +21,6 @@ pipeline {
                 bat "msbuild.exe SimpleFrameworkApp.csproj -t:clean"
             }
         }
-        stage('Increase version') {
-            steps {
-                echo "${env.BUILD_NUMBER}"
-                    powershell '''
-                       $xmlFileName = "<path-to-solution>\\<package-project-name>\\Package.appxmanifest"     
-                       [xml]$xmlDoc = Get-Content $xmlFileName
-                       $version = $xmlDoc.Package.Identity.Version
-                       $trimmedVersion = $version -replace '.[0-9]+$', '.'
-                       $xmlDoc.Package.Identity.Version = $trimmedVersion + ${env:BUILD_NUMBER}
-                       echo 'New version:' $xmlDoc.Package.Identity.Version
-                       $xmlDoc.Save($xmlFileName)
-                    '''
-                }
-            }
         stage('Build') {
             steps {
                 bat "msbuild.exe SimpleFrameworkApp.csproj -t:build"
