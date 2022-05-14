@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Restore packages') {
             steps {
-                bat "msbuild.exe SimpleFrameworkApp.csproj -t:restore"
+                bat "msbuild.exe SimpleFrameworkApp.csproj -t:restore -p:RestorePackagesConfig=true"
                 }
          }
         stage('Clean') {
