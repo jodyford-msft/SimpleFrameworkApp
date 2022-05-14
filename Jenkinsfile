@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Nuget Restore') {
             steps {
-                bat "nuget.exe restore SimpleFrameworkApp.csproj -t:build"
+                bat "nuget.exe restore SimpleFrameworkApp.csproj"
             }
         }
         stage('Build') {
