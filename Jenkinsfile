@@ -8,7 +8,7 @@ pipeline {
         }
         stage ('Git Checkout') {
             steps {
-                git branch: "master", credentialsId: "github-msm", url: "git@github.com:jodyford-msft/WebAPIOIDCSample2.git"
+                git branch: "master", credentialsId: "github-msm", url: "git@github.com:jodyford-msft/SimpleFrameworkApp.git"
             }
         }
         stage('Restore packages') {
