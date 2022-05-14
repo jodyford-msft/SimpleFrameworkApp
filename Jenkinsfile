@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Restore packages') {
             steps {
-                bat "dotnet restore ${workspace}\\SimpleFrameworkApp.sln"
+                bat "dotnet restore SimpleFrameworkApp.sln"
                 }
          }
         stage('Clean') {
