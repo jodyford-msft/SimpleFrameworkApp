@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Restore packages') {
             steps {
-                bat "dotnet restore SimpleFrameworkApp.sln --framework net48"
+                bat "dotnet restore SimpleFrameworkApp.sln -f net48"
                 }
          }
         stage('Clean') {
             steps {
-                bat "dotnet clean SimpleFrameworkApp.sln --framework net48"
+                bat "dotnet clean SimpleFrameworkApp.sln -f net48"
             }
         }
         stage('Increase version') {
