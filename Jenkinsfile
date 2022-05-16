@@ -39,7 +39,7 @@ pipeline {
                     azureCredentialsId: "sp_jekins", 
                     publishType: "file", 
                     resourceGroup: "MSM", 
-                    sourceDirectory: "C:\ProgramData\Jenkins\.jenkins\workspace\Sample App"
+                    sourceDirectory: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Sample App"
                 ])
             }
         }
