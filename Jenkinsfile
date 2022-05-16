@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat "msbuild.exe SimpleFrameworkApp.csproj -t:build"
+                bat "msbuild.exe SimpleFrameworkApp.csproj -t:build /p:Configuration=Release /p:Platform='Any CPU'"
             }
         }
         stage('Running unit tests') {
