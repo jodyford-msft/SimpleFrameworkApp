@@ -13,10 +13,10 @@ pipeline {
         }
         stage('Restore packages') {
             steps {
-                bat "msbuild.exe SimpleFrameworkApp.csproj -t:restore "
+                bat "msbuild.exe SimpleFrameworkApp.csproj -t:restore"
                 }
          }
-        stage('Clean') {
+        stage('Dotnet Clean') {
             steps {
                 bat "msbuild.exe SimpleFrameworkApp.csproj -t:clean"
             }
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat "msbuild.exe SimpleFrameworkApp.csproj -t:build /p:Configuration=Release /p:Platform='Any CPU'"
+                bat "msbuild.exe SimpleFrameworkApp.csproj -t:build"
             }
         }
         stage('Running unit tests') {
