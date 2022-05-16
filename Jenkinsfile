@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Build and Publish') {
             steps {
-                 bat "dotnet publish SimpleFrameworkApp.csproj -c Release"
+                sh(script: "dotnet publish SimpleFrameworkApp.csproj -c Release", returnStdout: true)
             }
         }
     }
