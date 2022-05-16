@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat "msbuild.exe SimpleFrameworkApp.csproj -t:build"
+                 sh(script: "dotnet publish SimpleFrameworkApp.csproj -c Release", returnStdout: true)
             }
         }
         stage("Publish to Azure") {
@@ -39,7 +39,7 @@ pipeline {
                     azureCredentialsId: "sp_jekins", 
                     publishType: "file", 
                     resourceGroup: "MSM", 
-                    sourceDirectory: "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Sample App\\"
+                    sourceDirectory: "C:/ProgramData/Jenkins/.jenkins/workspace/Sample App/bin/Release/publish/"
                 ])
             }
         }
