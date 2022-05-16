@@ -26,9 +26,9 @@ pipeline {
                 bat "nuget.exe restore SimpleFrameworkApp.csproj -PackagesDirectory Packages"
             }
         }
-        stage('Build') {
+        stage('Build and Publish') {
             steps {
-                 bat "msbuild.exe publish SimpleFrameworkApp.csproj -c Release"
+                 bat "dotnet publish SimpleFrameworkApp.csproj -c Release"
             }
         }
     }
