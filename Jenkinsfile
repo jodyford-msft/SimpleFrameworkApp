@@ -31,17 +31,5 @@ pipeline {
                  sh(script: "dotnet publish SimpleFrameworkApp.csproj -c Release", returnStdout: true)
             }
         }
-        stage("Publish to Azure") {
-            steps {
-                sh 'az login --service-principal -u sp_jenkins -p a9cbe7ea-8dd2-47e1-9a2b-7f4b14d583fb -t 72f988bf-86f1-41af-91ab-2d7cd011db47'
-                azureWebAppPublish ([
-                    appName: "App-MSM", 
-                    azureCredentialsId: "sp_jekins", 
-                    publishType: "file", 
-                    resourceGroup: "MSM", 
-                    sourceDirectory: "C:/ProgramData/Jenkins/.jenkins/workspace/Sample App/bin/Release/publish/"
-                ])
-            }
-        }
     }
 }
